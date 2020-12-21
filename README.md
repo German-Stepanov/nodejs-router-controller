@@ -56,6 +56,7 @@ myConfig.data = {
 	port		: 2020,
 	isDebug		: true,		//Сообшения сервера
 };
+
 //Конфигурация модуля "output-static"
 myConfig.static = {
 	//Запрет лоступа
@@ -83,6 +84,7 @@ myConfig.output = {
 };
 //Модуль фильтрации разрешенных статических ресурсов
 var output = require('output-view')(myConfig.output);
+
 //Конфигурация модуля "router-controller"
 myConfig.router = {
 	//Папка контроллеров (Абсолюьный адрес)
@@ -94,8 +96,9 @@ myConfig.router = {
 	//Не кэшировать
 	noCache		: true,
 };
-//Модуль 
+//Модуль маршрутизации к контроллерам
 var router = require('router-controller').router(myConfig.router);
+
 //Формируем задачу
 var app = function(req, res) {
 	//Фильтруем запросы статичных файлов
@@ -114,6 +117,10 @@ var app = function(req, res) {
 			console.log('\nПолучен запрос req.url', req.url);
 			console.time('app');//Установим метку времени
 		}
+
+		//Шаблонизатор
+		req.output = output;
+
 		//Ищем и запускаем контроллер
 		var controller = router.getController(req, res);
 		controller.start(function () {
@@ -210,7 +217,7 @@ localhost:2020/local/users/id/1
 ```
 Пример серверного кода для проверки работоспособности расположен в директории "_demo"
 ```
-### Установка зависимостей и запуск тестов
+### Установка зависимостей и запуск тестового сервера (из папки "router-controller")
 ```
 npm run demo
 ```

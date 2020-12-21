@@ -8,13 +8,13 @@ myConfig.data = {
 //Конфигурация модуля "output-static"
 myConfig.static = {
 	//Запрет лоступа
-	forbidden		: [ /*'/server.js',*/ '/node_modules/', '/controllers/'/*, 'views'*/ ],
+	forbidden	: [ /*'/server.js',*/ '/node_modules/', '/controllers/'/*, 'views'*/ ],
 	//Очищаемые от комментариев файлы js или css
-	clear			: [],	
+	clear		: [],	
 	//Список mime						
-	mime			: require('output-static-mime'),	
+	mime		: require('output-static-mime'),	
 	//Режим отладки (добавлять ошибки заппросов в лог)
-	isDebug			: true,
+	isDebug		: true,
 };
 //Корректировка mime
 myConfig.static.mime['.php'] = 'text/html, text/plain';
@@ -60,7 +60,6 @@ myConfig.router = {
 var router = require('router-controller').router(myConfig.router);
 
 
-var http = require('http');
 //Формируем задачу
 var app = function(req, res) {
 	//Фильтруем запросы статичных файлов
@@ -93,7 +92,7 @@ var app = function(req, res) {
 	});
 };
 //Создаем и запускаем сервер для задачи
-var server = http.createServer(app);
+var server = require('http').createServer(app);
 server.listen(myConfig.data.port);
 //Отображаем информацию о старте сервера
 if (myConfig.data.isDebug) console.log('Server start on port ' + myConfig.data.port + ' ...');

@@ -4,9 +4,7 @@
   "description": "Routing to Controller",
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {
-	  "demo-router-controller":"1.0.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

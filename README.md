@@ -12,7 +12,7 @@ var config = {
 };
 var router = require('router-controller').router(config);
 ```
-### Параметр "config.dir" определяет абсолюьный адрес папки контроллеров
+### Параметр "config.dir" определяет абсолютный адрес папки контроллеров
 Пример: 
 ```
 	__dirname + '/controllers'

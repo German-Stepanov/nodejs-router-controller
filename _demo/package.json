@@ -1,7 +1,7 @@
 {
-  "name": "demo-router-controller",
+  "name": "_demo",
   "version": "1.0.0",
-  "description": "Demo of routing to controllers",
+  "description": "Routing to controllers demo",
   "main": "server.js",
   "dependencies": {
     "output-static": "^1.0.3",
@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "demo": "npm install && node server.js"
   },
   "author": "German Stepanov",
   "license": "ISC"

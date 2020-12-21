@@ -159,7 +159,7 @@ var Controller = function(req, res) {
 
 ### Новый контроллер
 Используя класс базового контроллера можно создать контроллер обработки любого запроса.
-```
+```JS
 var Controller = function (req, res) {
 	require('router-controller').Controller.call(this, req, res);
 

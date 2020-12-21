@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-	  "/_demo" : "1.0.0"
+	  "demo-router-controller":"1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

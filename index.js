@@ -90,13 +90,9 @@ var Router = function (config) {
 		//Создаем контроллер
 		var controller = new (file ? require(file) : this.Controller)(req, res);
 		//Очистка кэша
-		if (file && this.config.noCache) delete require.cache[require.resolve(file)]; // Почистили кэш
+		if (file && this.config.noCache) delete require.cache[require.resolve(file)];
 		//Свойства контроллера
 		controller.uri = url_array.join('/');
-		if (controller.uri=='') {
-			controller.uri = '/';
-			url = url.replace(/^\//, '');
-		}
 		controller.urn = url.replace(controller.uri, '');
 		return controller;
 	};
